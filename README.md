@@ -1,7 +1,8 @@
 This project demonstrates fine-tuning for SimCLR using a firefighting device detection dataset from Roboflow.
 =============================================================================================================
 
-===================================================
+====================
+
 Installation & Setup
 ====================
 
@@ -13,7 +14,8 @@ Installation & Setup
 2. Install Dependencies:
    pip install -r requirements.txt
 
-===================================================
+=================
+
 Running the Model
 =================
 
@@ -29,7 +31,8 @@ Evaluate the Model:
 - This loads the trained model and evaluates test accuracy.
 - Expected output is test accuracy + loss.
 
-===================================================
+================
+
 Challenges Faced
 ================
 
@@ -38,7 +41,8 @@ Overfitting Issue:
 - During testing, the model achieves 100% accuracy, which is unrealistic.
 - This suggests the model is memorizing the training data rather than generalizing.
 
-===================================================
+=================================
+
 Steps Taken to Reduce Overfitting
 =================================
 
@@ -47,7 +51,8 @@ Steps Taken to Reduce Overfitting
 - Added Dropout: Introduced 0.5 dropout to reduce reliance on specific neurons.
 - Introduced Validation Loss Tracking: Monitored overfitting between training and validation.
 
-===================================================
+============
+
 Future Steps
 ============
 
