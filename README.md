@@ -32,25 +32,25 @@ Evaluate the Model:
 Challenges Faced
 ================
 
-Overfitting Issue:
+Class Imbalance
+     - Class distribution was highly imbalanced, with some classes having over 900 samples while others had less than 10.
+     - Some classes had no samples in the test set.
 
-- During testing, the model achieves 100% accuracy, which is unrealistic.
-- This suggests the model is memorizing the training data rather than generalizing.
 
 
-Steps Taken to Reduce Overfitting
+Steps Taken to Improve Generalization
 =================================
 
-- Added Data Augmentation: Introduced random rotation, flipping, and color jitter.
-- Lowered Learning Rate: Slowed down weight updates to improve generalization.
-- Added Dropout: Introduced 0.5 dropout to reduce reliance on specific neurons.
-- Introduced Validation Loss Tracking: Monitored overfitting between training and validation.
+Implemented Class Balancing:
+     - Used weighted loss function to compensate for imbalanced classes.
 
 
 Future Steps
 ============
 
-- Try a Smaller Model: ResNet-50 might be too complex for this dataset; a ResNet-18 model could generalize better.
-- Introduce Label Smoothing: Prevents the model from becoming overly confident in predictions.
-- Increase Training Data: If dataset size is small, synthetic augmentations could help.
-- Use Different Loss Functions: Test other loss functions like Focal Loss to improve learning balance.
+Increase Training Data
+     - Many classes have very few training samples (some have fewer than 10).
+     - More diverse examples or data augmentation for rare classes could improve performance.
+Improve Test Set Diversity
+     - The test set lacks examples from many classes.
+     - Samples could be taken from the training set
