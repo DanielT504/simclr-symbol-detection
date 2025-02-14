@@ -8,18 +8,17 @@ import os
 from PIL import Image
 import numpy as np
 
-# Define transformations
+# transformations
 transform = transforms.Compose([
     transforms.Resize((128, 128)),
     transforms.RandomRotation(10),  # Randomly rotate by ±10 degrees
-    transforms.RandomHorizontalFlip(),  # 50% chance to flip
+    transforms.RandomHorizontalFlip(),  # 50% chance to flip horizontally
     transforms.RandomVerticalFlip(),  # 50% chance to flip vertically
-    transforms.ColorJitter(brightness=0.2, contrast=0.2),  # Adjust brightness & contrast
+    transforms.ColorJitter(brightness=0.2, contrast=0.2),  # Adjust brightness and contrast
     transforms.ToTensor(),
-    transforms.Normalize(mean=[0.5], std=[0.5])  # Normalize pixel values
+    transforms.Normalize(mean=[0.5], std=[0.5])
 ])
 
-# Custom dataset loader
 class FirefightingDataset(Dataset):
     def __init__(self, root_dir, label_dir, transform=None, num_classes=41):  # Adjusted num_classes to 41
         self.root_dir = root_dir
@@ -64,7 +63,7 @@ valid_loader = DataLoader(valid_dataset, batch_size=16, shuffle=False)
 
 # Define model
 class SimCLRClassifier(nn.Module):
-    def __init__(self, num_classes=41):  # Adjusted to match dataset
+    def __init__(self, num_classes=41):
         super(SimCLRClassifier, self).__init__()
         self.backbone = models.resnet50(weights="IMAGENET1K_V1")
         self.backbone.fc = nn.Identity()
